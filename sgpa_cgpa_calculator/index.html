@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Grade calculator 💡</title>
+  
+  </head>
+  <style>
+   
+  </style>
+  <body>
+    <div class="con">
+        <div>
+      <h1 style="font-family: 'Marck Script', cursive;color:black">SGPA   and   CGPA  Calculator</h1>
+      <div>
+        <input class="subject" placeholder="sub1" />
+        <input class="credits" placeholder="credits1" />
+      </div>
+      <div>
+        <input class="subject" placeholder="sub2" />
+        <input class="credits" placeholder="credits2" />
+      </div>
+      <div>
+        <input class="subject" placeholder="sub3" />
+        <input class="credits" placeholder="credits3" />
+      </div>
+      <div>
+        <input class="subject" placeholder="sub4" />
+        <input class="credits" placeholder="credits4" />
+      </div>
+      <div>
+        <input class="subject" placeholder="sub5" />
+        <input class="credits" placeholder="credits5" />
+      </div>
+      <div>
+        <input class="subject" placeholder="sub6" />
+        <input class="credits" placeholder="credits6" />
+      </div>
+      <div>
+        <input class="subject" placeholder="sub7" />
+        <input class="credits" placeholder="credits7" />
+      </div>
+      <div>
+        <input class="subject" placeholder="sub8" />
+        <input class="credits" placeholder="credits8" />
+      </div>
+    </div>
+    <div class="display">
+    <button onclick="getsgpa()" class="lbtn">sgpa</button>
+    <button onclick="getcgpa()" class="rbtn"> cgpa</button> 
+    </div>
+    </div>
+  </body>
+
+  <script>
+    let marks = [];
+    let credits = [];
+    function getsgpa() {
+      // getting the html codes
+      let all_marks = Array.from(document.querySelectorAll(".subject"));
+      // getting the values from html input boxes
+      all_marks.forEach((node) => {
+        marks.push(node.value);
+      });
+
+      let all_credits = Array.from(document.querySelectorAll(".credits"));
+      // getting the values from html input boxes
+      all_credits.forEach((node) => {
+        credits.push(node.value);
+      });
+
+      let sum = 0;
+      let total_credits = 0;
+      // marks[0]*credits[0] + marks[1]*credits[1]...
+      for (let i = 0; i < 8; i++) {
+        sum = sum + marks[i] * credits[i];
+        total_credits += parseInt(credits[i]);
+      }
+      const h1 = document.createElement("h1");
+      h1.innerText = sum / total_credits;
+      h1.style.textAlign = "center";
+      document.body.append(h1);
+    }
+    function getcgpa() {
+      // getting the html codes
+      let all_marks = Array.from(document.querySelectorAll(".subject"));
+      // getting the values from html input boxes
+      all_marks.forEach((node) => {
+        marks.push(node.value);
+      });
+
+      let all_credits = Array.from(document.querySelectorAll(".credits"));
+      // getting the values from html input boxes
+      all_credits.forEach((node) => {
+        credits.push(node.value);
+      });
+
+      let sum = 0;
+      let total_credits = 0;
+      let total=0;
+      // marks[0]*credits[0] + marks[1]*credits[1]...
+      for (let i = 0; i < 8; i++) {
+        sum = sum + marks[i] * credits[i];
+        total_credits += parseInt(credits[i]);
+      }
+      total= (sum / total_credits)*total_credits
+
+      const h1 = document.createElement("h1");
+      h1.innerText = total/total_credits;
+      h1.style.textAlign="center";
+      document.body.append(h1);
+    }
+  </script>
+</html>
